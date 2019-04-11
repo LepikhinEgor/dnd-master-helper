@@ -1,0 +1,7 @@
+com/egorl/view/MainWindow.class
+com/egorl/beans/ViewsConfiguration.class
+com/egorl/model/GameCharacter.class
+com/egorl/properties/UserProperties.class
+com/egorl/App.class
+com/egorl/view/CharacterPanel.class
+com/egorl/view/IndecatorLine.class
