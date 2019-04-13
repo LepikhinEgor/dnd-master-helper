@@ -1,5 +1,6 @@
 package com.egorl.view;
 
+import com.egorl.model.CharacterMainCharacteristic;
 import com.egorl.model.GameCharacter;
 import com.egorl.properties.UserProperties;
 import org.slf4j.Logger;
@@ -107,6 +108,15 @@ public class AppCreator {
         mainWindow.add(charactersPanel);
         logger.info(mainWindowLayout.getConstraints(charactersPanel).weightx + "");
 
+        CharacterMainCharacteristic[] characteristics = new CharacterMainCharacteristic[5];
+        characteristics[0] = new CharacterMainCharacteristic("Power", 5);
+        characteristics[1] = new CharacterMainCharacteristic("Power", 5);
+        characteristics[2] = new CharacterMainCharacteristic("Power", 5);
+        characteristics[3] = new CharacterMainCharacteristic("Power", 5);
+        characteristics[4] = new CharacterMainCharacteristic("Power", 5);
+
+        CharacteristicsPanel characteristicsPanel = new CharacteristicsPanel(characteristics);
+        mainPanel.add(characteristicsPanel);
         mainWindowLayout.setConstraints(mainPanel, mainPanelConstraints);
         mainWindow.add(mainPanel);
         mainWindow.repaint();

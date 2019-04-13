@@ -60,12 +60,12 @@ public class ViewsConfiguration {
 
     @Bean()
     JPanel mainPanel() {
-        JPanel charactersPanel = new JPanel();
+        JPanel mainPanel = new JPanel();
 
-        charactersPanel.setBackground(Color.blue);
-        charactersPanel.setVisible(true);
+        mainPanel.setBackground(Color.blue);
+        mainPanel.setVisible(true);
 
-        return charactersPanel;
+        return mainPanel;
     }
 
     @Bean()
@@ -80,10 +80,15 @@ public class ViewsConfiguration {
         characterConstraints.weighty = 1;
         characterConstraints.gridwidth = 30;
         characterConstraints.anchor = GridBagConstraints.NORTH;
-        characterConstraints.fill = GridBagConstraints.HORIZONTAL;
+        characterConstraints.fill = GridBagConstraints.BOTH;
 
         return characterConstraints;
     }
+
+//    JPanel characteristicsPanel() {
+//
+//
+//    }
 //
     @Bean
     CharacterPanel jackSparrowPanel() {
