@@ -51,6 +51,18 @@ public class AppCreator {
     @Qualifier("mainPanelConstraints")
     private GridBagConstraints mainPanelConstraints;
 
+    @Autowired
+    private CharacteristicsPanel characteristicsPanel;
+
+    @Autowired
+    private SkillsPanel skillsPanel;
+
+    @Autowired
+    private AbilitiesPanel abilitiesPanel;
+
+    @Autowired
+    private PersonalPanel personalPanel;
+
     public AppCreator() {
         userProperties = UserProperties.getInstance();
     }
@@ -108,16 +120,23 @@ public class AppCreator {
         mainWindow.add(charactersPanel);
         logger.info(mainWindowLayout.getConstraints(charactersPanel).weightx + "");
 
-        CharacterMainCharacteristic[] characteristics = new CharacterMainCharacteristic[5];
-        characteristics[0] = new CharacterMainCharacteristic("Power", 5);
-        characteristics[1] = new CharacterMainCharacteristic("Power", 5);
-        characteristics[2] = new CharacterMainCharacteristic("Power", 5);
-        characteristics[3] = new CharacterMainCharacteristic("Power", 5);
-        characteristics[4] = new CharacterMainCharacteristic("Power", 5);
-
-        CharacteristicsPanel characteristicsPanel = new CharacteristicsPanel(characteristics);
-        mainPanel.add(characteristicsPanel);
+//        mainPanel.add(characteristicsPanel);
+        skillsPanel.fill();
+        abilitiesPanel.fill();
+        personalPanel.fill();
+//        JSplitPane firstPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, characteristicsPanel, skillsPanel);
+        JScrollPane skillsScroll = new JScrollPane(skillsPanel);
+        JPanel inventoryPanel = new JPanel();
+        inventoryPanel.setPreferredSize(new Dimension(500, 500));
+        JPanel facePanel = new JPanel();
+        facePanel.setPreferredSize(new Dimension(500, 500));
+        JSplitPane firstPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, skillsScroll, characteristicsPanel);
+        JSplitPane secondPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, facePanel, personalPanel);
+        JSplitPane thirdPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, abilitiesPanel, inventoryPanel);
         mainWindowLayout.setConstraints(mainPanel, mainPanelConstraints);
+        mainPanel.add(firstPane);
+        mainPanel.add(secondPane);
+        mainPanel.add(thirdPane);
         mainWindow.add(mainPanel);
         mainWindow.repaint();
         logger.info(mainWindowLayout.getConstraints(mainPanel).weightx + "");

@@ -42,8 +42,6 @@ public class CharacterPanel extends JPanel {
 
     private GameCharacter character;
 
-    JLabel nameLabel;
-
     IndecatorLine[] indicatorlines;
 
     private final int[][] shadowPositionArray = {{0, -1}, {1, -1}, {-1, 0}, {-1, 1}, {1, 1}, {1, 0}, {0, 1}};
@@ -60,25 +58,21 @@ public class CharacterPanel extends JPanel {
 
         this.setLayout(null);
         this.characterIcon = icon;
-//        setPreferredSize(new Dimension(this.getWidth(),300));
 
         setPanelSize(2);
-        nameLabel = new JLabel(character.getName());
         this.character = character;
 
         indicatorlines = new IndecatorLine[2];
         indicatorlines[0] = new IndecatorLine("Health",100,90, Color.RED);
         indicatorlines[1] = new IndecatorLine("Stamina",100,60, Color.GREEN);
 
-//        this.add(nameLabel);
-
         if (characterIcon != null) {
             logger.info("ss");
 //            drawIcon();
         }
 //
-        for(IndecatorLine characteristicPanel: indicatorlines) {
-            this.add(characteristicPanel);
+        for(IndecatorLine indecatorLine: indicatorlines) {
+            this.add(indecatorLine);
         }
 
         try{
@@ -105,7 +99,6 @@ public class CharacterPanel extends JPanel {
         if (character != null) {
             //drawing background because java bug draw not correct
             g2.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), null);
-            logger.info(this.getWidth() + "fff");
 
             drawCharacterIcon(g2);
             drawCharacterName(g2);

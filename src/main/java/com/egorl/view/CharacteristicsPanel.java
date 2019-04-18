@@ -21,7 +21,6 @@ public class CharacteristicsPanel extends JPanel {
 
     @Override
     public void paint(Graphics g) {
-        logger.info("fffff");
         Graphics2D g2 = (Graphics2D)g;
 
         for (int i = 1; i < characteristics.length; i++) {

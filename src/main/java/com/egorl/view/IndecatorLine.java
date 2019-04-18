@@ -1,5 +1,8 @@
 package com.egorl.view;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,6 +10,8 @@ import java.awt.*;
  * This object show line, that indicate current value health, mana, stamina, breath and so on
  */
 public class IndecatorLine extends JPanel {
+
+    private static final Logger logger = LoggerFactory.getLogger(IndecatorLine.class);
 
     public static final int HEIGHT = 32;
 
